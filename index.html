@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
-    <title>合成大西瓜</title>
+    <title>合成大茄子</title>
 
     <!--http://www.html5rocks.com/en/mobile/mobifying/-->
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1">
@@ -86,7 +86,7 @@
     </div>
 
     <div id="loadingImg" style="top:45%;width:100%;position:absolute;">
-        <img src="res/loading.gif" width="7%" height="7%">
+        <img src="res/loading.gif" width="40%" height="40%">
     </div>
 
     <!--<div align="center" style="font-size: 10px;color: dimgrey">advertisement</div>-->
@@ -111,11 +111,11 @@
             //        console.log("window.navigator.language",window.navigator.language);
 
             if (window.navigator.language == "zh-CN" || window.navigator.language == "zh-cn") {
-                document.title = "合成大西瓜";
+                document.title = "合成大茄子";
             } else if (window.navigator.language == "ja-JP") {
-                document.title = "ミニゲーム：合成";
+                document.title = "チェルシーアの創造";
             } else {
-                document.title = "Little game：Synthetic watermelon";
+                document.title = "The birth of Chelsea";
             }
         }
 
@@ -125,7 +125,7 @@
             loadintGif.remove();
             loadintT.style.display = ""
             updateLabView(0.1);
-        }, 1 * 1000)
+        }, 5 * 1000)
 
         window.timer = null;
         window.tempSeconds = 1;
@@ -138,9 +138,27 @@
         function onload() {
             var winHeight = document.documentElement.clientHeight;
             document.getElementById("canvasDiv").style.height = winHeight + "px";
+            if (IsPC()) {
+                var winWidth = winHeight * 0.8;
+                document.getElementById("canvasDiv").style.width = winWidth + "px";
+            }
         };
         window.onload = function() {
             document.getElementById("block-Box").style.display = "none";
+        }
+
+        function IsPC() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+            var flag = true;
+
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
         }
 
         function updateLabView(t) {
