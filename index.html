@@ -74,7 +74,7 @@
     </div>
 
     <div id="adContainer" style="display:none;position: absolute;top:0px;left: 0px;width:100%;height:100%;"></div>
-    <div id="loadingText" style="width: 100%; display: none; text-align: center; position: absolute;z-index: 2; top:72%; font-size: 20px; color: #f99f0a">
+    <div id="loadingText" style="width: 100%; display: none; text-align: center; position: absolute;z-index: 2; top:65%; font-size: 20px; color: #f99f0a">
         loading......0%
     </div>
 
@@ -85,8 +85,8 @@
     </div>
 
     <!--<div align="center" style="font-size: 10px;color: dimgrey">advertisement</div>-->
-    <div id="loadingImg" style="top:24%; width:100%; z-index: 3;position: absolute;">
-        <img src="res/loading.gif" width="15%" height="15%">
+    <div id="loadingImg" style="top:25%; width:100%; z-index: 3;position: absolute;">
+        <img src="res/loading.gif" width="25%" height="25%">
     </div>
 
     <script src="src/settings.js" charset="utf-8"></script>
@@ -194,7 +194,6 @@
                         break;
                     case 99:
                         updateLabView(100);
-                        loadintGif.remove();
                         break;
                     default:
                         if (tempSeconds >= 80 && tempSeconds < 96) {
@@ -214,6 +213,10 @@
             var percent = parseInt(100 * loadData.completedCount / loadData.totalCount);
             if (percent > tempSeconds && loadData.totalCount > 1) {
                 tempSeconds = percent;
+            }
+            if (percent == 100)
+            {
+                loadintGif.remove();
             }
         }
     </script>
