@@ -74,13 +74,11 @@
     </div>
 
     <div id="adContainer" style="display:none;position: absolute;top:0px;left: 0px;width:100%;height:100%;"></div>
-    <div id="loadingBox" style="top:25%; width:100%; z-index: 3; position: absolute;">
-        <div id="loadingImg" >
-            <img src="res/loading.gif" width="15%" height="15%">
-        </div>
-        <div id="loadingText" style="width: 100%; display: none; text-align: center; font-size: 20px; color: #f99f0a">
-            loading......0%
-        </div>
+    <div id="loadingImg" style="top:25%; width:100%; z-index: 2; position: absolute;">
+        <img src="res/loading.gif" width="15%" height="15%">
+    </div>
+    <div id="loadingText" style="width: 100%; display: none; text-align: center; top:25%; z-index: 2; position: absolute; font-size: 20px; color: #f99f0a">
+        loading......0%
     </div>
 
     <div id="splash" style="display: none;">
@@ -105,22 +103,26 @@
         var adEndComplete = false;
         var resEndComplete = false;
 
-        judgeLanTitle();
+        var loadintT = document.getElementById("loadingText");
+        var loadintGif = document.getElementById("loadingImg")
 
-        function judgeLanTitle() {
+        setTitle_and_LoadingBox();
+
+        function setTitle_and_LoadingBox() {
             // console.log("window.navigator.language",window.navigator.language);
 
             if (window.navigator.language == "zh-CN" || window.navigator.language == "zh-cn") {
+                document.title = "合成大茄子";
+            } else if (window.navigator.language == "zh-HK" || window.navigator.language == "zh-TW") {
                 document.title = "合成大茄子";
             } else if (window.navigator.language == "ja-JP") {
                 document.title = "チェルシーアの創造";
             } else {
                 document.title = "The birth of Chelsea";
             }
+            loadintT.style.borderTop = loadintImg.style.borderBottom + 20;
         }
 
-        var loadintT = document.getElementById("loadingText");
-        var loadintGif = document.getElementById("loadingImg")
         setTimeout(function() {
             loadintT.style.display = ""
             updateLabView(0.1);
