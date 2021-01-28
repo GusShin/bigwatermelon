@@ -121,12 +121,11 @@
                 document.title = "The birth of Chelsea";
             }
             var elementTop = 0.5 * (document.documentElement.clientHeight - 400 * 0.15 - 30);
-            if (elementTop > 0) {
-                loadintGif.style.top = elementTop + "px";
-            } else {
-                loadintGif.style.top = 0 + "px";
+            if (elementTop < 0) {
+                elementTop = 0;
             }
-            loadintT.style.top = loadintGif.style.top + 400 * 0.15 + 10 + "px";
+            loadintGif.style.top = elementTop + "px";
+            loadintT.style.top = elementTop + 400 * 0.15 + 10 + "px";
         }
 
         setTimeout(function() {
