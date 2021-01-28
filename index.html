@@ -103,9 +103,6 @@
         var adEndComplete = false;
         var resEndComplete = false;
 
-        var loadintT = document.getElementById("loadingText");
-        var loadintGif = document.getElementById("loadingImg");
-
         setTitle_and_LoadingBox();
 
         function setTitle_and_LoadingBox() {
@@ -124,9 +121,12 @@
             if (elementTop < 0) {
                 elementTop = 0;
             }
-            loadintGif.style.top = elementTop + "px";
-            loadintT.style.top = elementTop + 400 * 0.15 + 10 + "px";
+            document.getElementById("loadingImg").style.top = elementTop + "px";
+            document.getElementById("loadingText").style.top = elementTop + 400 * 0.15 + 10 + "px";
         }
+
+        var loadintT = document.getElementById("loadingText");
+        var loadintGif = document.getElementById("loadingImg");
 
         setTimeout(function() {
             loadintT.style.display = ""
