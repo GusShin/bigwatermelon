@@ -103,6 +103,9 @@
         var adEndComplete = false;
         var resEndComplete = false;
 
+        var loadintT = document.getElementById("loadingText");
+        var loadintGif = document.getElementById("loadingImg");
+
         setTitle_and_LoadingBox();
 
         function setTitle_and_LoadingBox() {
@@ -117,16 +120,13 @@
             } else {
                 document.title = "The birth of Chelsea";
             }
-            var elementTop = 0.5 * (document.documentElement.clientHeight - 400 * 0.15 - 30);
+            var elementTop = 0.5 * (document.documentElement.clientHeight - loadintGif.clientHeight - 30);
             if (elementTop < 0) {
                 elementTop = 0;
             }
-            document.getElementById("loadingImg").style.top = elementTop + "px";
-            document.getElementById("loadingText").style.top = elementTop + 400 * 0.15 + 10 + "px";
+            loadintGif.clientTop = elementTop;
+            loadintT.clientTop = loadintGif.clientTop + 10;
         }
-
-        var loadintT = document.getElementById("loadingText");
-        var loadintGif = document.getElementById("loadingImg");
 
         setTimeout(function() {
             loadintT.style.display = ""
