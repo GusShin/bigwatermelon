@@ -124,8 +124,8 @@
             if (elementTop < 0) {
                 elementTop = 0;
             }
-            loadintGif.clientTop = elementTop;
-            loadintT.clientTop = loadintGif.clientTop + 10;
+            loadintGif.offsetTop = elementTop;
+            loadintT.offsetTop = loadintGif.offsetTop + loadintGif.clientHeight + 10;
         }
 
         setTimeout(function() {
