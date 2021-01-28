@@ -214,10 +214,6 @@
             if (percent > tempSeconds && loadData.totalCount > 1) {
                 tempSeconds = percent;
             }
-            if (percent == 100)
-            {
-                loadintGif.remove();
-            }
         }
     </script>
 
@@ -244,6 +240,7 @@
                 document.body.removeChild(cocos2d);
                 cocos2d.removeEventListener('load', engineLoaded, false);
                 window.boot();
+                loadintGif.remove();
             };
             cocos2d.addEventListener('load', engineLoaded, false);
             document.body.appendChild(cocos2d);
