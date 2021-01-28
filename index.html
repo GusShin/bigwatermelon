@@ -126,6 +126,7 @@
             }
             loadintGif.style.top = parseInt(100 * elementTop / winHeight) + "%";
             loadintT.style.top = parseInt(100 * (elementTop + loadintGif.clientHeight + 10) / winHeight) + "%";
+            load
         }
 
         setTimeout(function() {
@@ -201,6 +202,7 @@
                         break;
                     case 99:
                         updateLabView(100);
+                        loadintGif.remove();
                         break;
                     default:
                         if (tempSeconds >= 80 && tempSeconds < 96) {
@@ -250,7 +252,6 @@
             };
             cocos2d.addEventListener('load', engineLoaded, false);
             document.body.appendChild(cocos2d);
-            loadintGif.remove();
         })();
     </script>
 </body>
